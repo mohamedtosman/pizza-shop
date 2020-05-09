@@ -1,0 +1,42 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/python:3.7.0
+        environment:
+          PIPENV_VENV_IN_PROJECT: true
+          DATABASE_URL: postgresql://postgres@localhost/circle_test?sslmode=disable
+      - image: postgres:11-alpine
+        volumes:
+          - postgres_data:/var/lib/postgresql/data/
+        environment:
+          POSTGRES_USER: postgres
+          POSTGRES_HOST_AUTH_METHOD: trust
+        ports:
+          - 5433:5432
+    steps:
+      - checkout
+      - restore_cache:
+          key: deps1-{{ .Branch }}-{{ checksum "requirements-dev.txt" }}
+      - run:
+          command: |
+            python3 -m venv venv
+            . venv/bin/activate
+            pip install -r requirements-dev.txt
+      - save_cache:
+          key: deps1-{{ .Branch }}-{{ checksum "requirements-dev.txt" }}
+          paths:
+            - "venv"
+      - run:
+          name: Running tests
+          command: |
+            . venv/bin/activate
+            python3 manage.py test
+      - run:
+          name: Running PyLint
+          command: |
+            . venv/bin/activate
+            pylint --load-plugins pylint_django api --rcfile=.pylintrc
+      - store_artifacts:
+          path: test-reports/
+          destination: python_app

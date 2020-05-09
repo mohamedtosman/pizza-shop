@@ -1,0 +1,47 @@
+[
+    {
+        "model": "api.pizza",
+        "pk": "2c0a7cf4-96b0-40ec-aa47-e149861732ab",
+        "fields": {
+            "created_at": "2020-05-19T15:27:55.040Z",
+            "updated_at": "2019-05-19T15:27:55.040Z",
+            "name": "Cheese"
+        }
+    },
+    {
+        "model": "api.pizza",
+        "pk": "2fd33014-c6e4-4427-896a-84b17ec26188",
+        "fields": {
+            "created_at": "2020-05-19T15:27:55.040Z",
+            "updated_at": "2020-05-19T15:27:55.040Z",
+            "name": "Pepperoni"
+        }
+    },
+    {
+        "model": "api.pizza",
+        "pk": "714be358-cd17-4187-be44-9b47fd4e6c5c",
+        "fields": {
+            "created_at": "2020-05-19T15:27:55.040Z",
+            "updated_at": "2020-05-19T15:27:55.040Z",
+            "name": "Beef"
+        }
+    },
+    {
+        "model": "api.pizza",
+        "pk": "a28e3bac-d64f-4e6e-88e5-9699184bd176",
+        "fields": {
+            "created_at": "2020-05-19T15:27:55.040Z",
+            "updated_at": "2020-05-19T15:27:55.040Z",
+            "name": "Ham"
+        }
+    },
+    {
+        "model": "api.pizza",
+        "pk": "ef20a146-d479-4ada-a08a-15402f8929ff",
+        "fields": {
+            "created_at": "2020-05-19T15:27:55.040Z",
+            "updated_at": "2020-05-19T15:27:55.040Z",
+            "name": "Chicken"
+        }
+    }
+]
